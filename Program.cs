@@ -11,11 +11,23 @@
             User user3 = users[2];
             User user4 = users[3];
             User user5 = users[4];
+            User.CreateUsers(); //Initiates the users
+            bool runBank = true; // 2 variables to see if the program should keep running
+            bool newUser = true;
 
-
-            User currentUser = User.LogIn(user1, user2, user3, user4, user5);
-
-            User.RunMenu(currentUser);
+            User.WelcomeMsg();
+            while (runBank)
+            {
+                //LogIn function based off users initiated above. 
+                User currentUser = User.LogIn(user1, user2, user3, user4, user5);
+                //Function RunMenu returns a true or false. 
+                //If user selected newUser, the function will return true and this while loop exists
+                //if user selected exit bank, this function will return false and exits the while loop
+                //The function allows for internal iterations.
+                runBank = User.RunMenu(currentUser, runBank, newUser); 
+            }
+            Console.Clear();
+            Console.WriteLine("Thank you for using the bank.");
         }
     }
 }
@@ -25,13 +37,14 @@
 //Bankomaten skall ha 5 olika använare som ska kunna använda den, behöver EJ kunna läggas till fler
 
 //Väl inloggad_
-//Meny med 4 val:
-//Se Konto och saldo
-//Överföring mellan konton
-//Ta ut pengar
-//Logga ut
+//-------Meny med 4 val:
+//-------Se Konto och saldo
+//-------Överföring mellan konton
+//-------Ta ut pengar
+//-------Logga ut
 
-//Användaren väljer funktion genom en siffra.
+//--------------Användaren väljer funktion genom en siffra.
+
 //När en funktion kör klart skall användaren få upp text "Tryck enter för att komma till huvudmenyn, när denna gjort det kommer menyn upp igen
 //Om användaren väljer logga ut ska programmet ta användaren till inloggning igen
 //Om användaren skriver ett nummer som inte finns i menyn eller något annat ska systemet meddela ogiltigt val
