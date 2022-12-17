@@ -24,7 +24,7 @@
                 //If user selected newUser, the function will return true and this while loop exists
                 //if user selected exit bank, this function will return false and exits the while loop
                 //The function allows for internal iterations.
-                runBank = User.RunMenu(currentUser, runBank, newUser); 
+                runBank = User.RunMenu(currentUser, runBank); 
             }
             Console.Clear();
             Console.WriteLine("Thank you for using the bank.");

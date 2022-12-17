@@ -108,7 +108,7 @@ namespace IndiduelltP_Banken_CS_MG
             return usernameFirst;
         }
 
-        public static bool RunMenu(User currentUser, bool toRun, bool newUser)
+        public static bool RunMenu(User currentUser, bool toRun)
         {
             //Console.WriteLine("Login succeeded. Welcome, " + usernameFirst + currentUser.username.Substring(1) + "."); //Presents the name with a capital first letter
             bool runProgram = true; //Runs program until exited by user
@@ -178,17 +178,10 @@ namespace IndiduelltP_Banken_CS_MG
                 else
                 {
                     Console.WriteLine("Invalid user, returning to start");
-                    return newUser;
+                    return toRun;
                 }
             }
-            if (toRun == false) // A check to see if the program should continue or stop
-            {
-                return toRun;
-            }
-            else
-            {
-                return newUser;
-            }
+            return toRun;
         }
     }
 }
