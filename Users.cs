@@ -11,12 +11,13 @@ namespace IndiduelltP_Banken_CS_MG
     {
         public string username { get; set; }
         public int pincode { get; set; } //SET TO PRIVATE AND MAKE SET-PARAMETERS?
+        public double[] balances { get; set; }
 
-        public User(string username, int pincode) //Constructor that takes two parameters.
+        public User(string username, int pincode, double[] balances)  //Constructor that takes two parameters.
         {
             this.username = username;
             this.pincode = pincode;
-
+            this.balances = balances;
         }
 
         public static User[] CreateUsers() //Public method that returns an array of Users
@@ -24,29 +25,13 @@ namespace IndiduelltP_Banken_CS_MG
             User[] users = new User[] //An array of objects, 
             {
                 //Creates 5 User-objects with 2 arguments for username and password
-            new User("a", 1111),
-            new User("b", 2222),
-            new User("c", 3333),
-            new User("d", 4444),
-            new User("e", 5555)
+            new User("a", 1111, new double[] { 101.0, 102.0, 103.0 }),
+            new User("b", 2222, new double[] { 201.0, 202.0, 203.0 }),
+            new User("c", 3333, new double[] { 301.0, 302.0, 303.0 }),
+            new User("d", 4444, new double[] { 401.0, 402.0, 403.0 }),
+            new User("e", 5555, new double[] { 501.0, 502.0, 503.0 })
             };
             return users;
-        }
-
-        public static void enterToContinue()
-        {
-            Console.WriteLine("Press the Enter key to return to the Main menu...");
-            while (Console.ReadKey(true).Key != ConsoleKey.Enter)
-            {
-                Console.WriteLine("You did not press the Enter key. Try again.");
-            }
-        }
-
-        public static void WelcomeMsg()
-        {
-            Console.WriteLine("Welcome to the mock-bank Program!"); //Greetings
-            // Prompt the user to log in
-            Console.WriteLine("Please log in to continue.");
         }
 
         public static User LogIn(User user1, User user2, User user3, User user4, User user5) //Method for login sequence
@@ -94,18 +79,10 @@ namespace IndiduelltP_Banken_CS_MG
                     Console.WriteLine("Login not successfull. Please try again."); //If no match
                 }
             }
-            string firstName = PresentableName(currentUser);
+            string firstName = MessagesInformations.PresentableName(currentUser);
             Console.Clear();
             Console.WriteLine("Login successful, welcome " + firstName + "\n");
             return currentUser;
-        }
-
-        public static string PresentableName(User user)
-        {
-            string usernameFirst = user.username[0].ToString(); //Extracts first character of name
-            usernameFirst = usernameFirst.ToUpper(); //Makes it uppcase
-            string capitalFirstName = usernameFirst + user.username.Substring(1);
-            return usernameFirst;
         }
 
         public static bool RunMenu(User currentUser, bool toRun)
@@ -132,7 +109,7 @@ namespace IndiduelltP_Banken_CS_MG
                         case 1:
                             Console.Clear();
                             Console.WriteLine("Placeholder for viewing Accounts and Funds: Meanwhile- Password is: " + currentUser.pincode);
-                            enterToContinue();
+                            MessagesInformations.enterToContinue();
                             Console.Clear();
                             break;
                         case 2: //New password
@@ -142,21 +119,23 @@ namespace IndiduelltP_Banken_CS_MG
                             int newPincode = int.Parse(Console.ReadLine()); //Accepts new password
                             currentUser.pincode = newPincode; //Sets it to the current users password
                             Console.WriteLine("Password changed.");
-                            enterToContinue();
+                            MessagesInformations.enterToContinue();
                             Console.Clear();
                             break;
                         case 3:
                             Console.Clear();
                             Console.WriteLine("Placeholder for withdrawing funds.");
-                            enterToContinue();
+                            MessagesInformations.enterToContinue();
                             Console.Clear();
                             break;
                         case 4://Logging out
-                            string firstName = PresentableName(currentUser);
+                            string firstName = MessagesInformations.PresentableName(currentUser);
                             Console.WriteLine("Logging out, goodbye " + firstName);
                             //Console.WriteLine("Logging out: " + usernameFirst + currentUser.username.Substring(1) + "."); //Farewell message
+
                             runProgram = false; //sets bool to false and exists while loop
                             Console.Clear();
+
                             Console.WriteLine("Would you like to login with a different user or exit the program?");
                             Console.WriteLine("     1. Log in with another user.");
                             Console.WriteLine("     2. Exit the bank");
