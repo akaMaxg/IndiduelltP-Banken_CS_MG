@@ -9,7 +9,7 @@ namespace IndiduelltP_Banken_CS_MG
 {
     public class BankFunctions
     {
-        static public void populateAccounts(User user)
+        static public void populateAccounts(User user) //Function that generates balances and adds it to an array
         {
             Random rnd = new Random();
             for (int i = 0; i < user.balances.Length; i++)

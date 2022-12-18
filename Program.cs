@@ -6,12 +6,6 @@
         {
 
             User[] users = User.CreateUsers(); //Create user returns an array of 5 users,
-            //Random rnd = new Random();
-
-            //double balanceOne = rnd.NextDouble() * 100000;
-            //double balanceTwo = rnd.NextDouble() * 100000;
-            //double balanceThree = rnd.NextDouble() * 100000;
-
 
             //Users are placed into User-type variables
             User user1 = users[0];
@@ -32,9 +26,9 @@
 
             }
 
-            Console.WriteLine(user1.balances[0]);
-            Console.WriteLine(user1.balances[1]);
-            Console.WriteLine(user1.balances[2]);
+            //Console.WriteLine(user1.balances[0]);
+            //Console.WriteLine(user1.balances[1]);
+            //Console.WriteLine(user1.balances[2]);
 
             bool runBank = true; // 2 variables to see if the program should keep running
 

@@ -10,10 +10,10 @@ namespace IndiduelltP_Banken_CS_MG
     public class User  // Define the User class with 2 properties: a username and password
     {
         public string username { get; set; }
-        public int pincode { get; set; } //SET TO PRIVATE AND MAKE SET-PARAMETERS?
-        public double[] balances { get; set; }
+        public int pincode { get; set; } 
+        public double[] balances { get; set; } //Set to private and adjust SET parameters?
 
-        public User(string username, int pincode, double[] balances)  //Constructor that takes two parameters.
+        public User(string username, int pincode, double[] balances)  //Constructor that takes three parameters.
         {
             this.username = username;
             this.pincode = pincode;
@@ -24,7 +24,7 @@ namespace IndiduelltP_Banken_CS_MG
         {
             User[] users = new User[] //An array of objects, 
             {
-                //Creates 5 User-objects with 2 arguments for username and password
+                //Creates 5 User-objects with 3 arguments for username and password, balances
             new User("a", 1111, new double[] { 101.0, 102.0, 103.0 }),
             new User("b", 2222, new double[] { 201.0, 202.0, 203.0 }),
             new User("c", 3333, new double[] { 301.0, 302.0, 303.0 }),
