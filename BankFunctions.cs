@@ -15,7 +15,6 @@ namespace IndiduelltP_Banken_CS_MG
             bool runProgram = true; //Runs program until exited by user
             while (runProgram)
             {
-                // If the login is successful, present the user with a menu
                 if (currentUser != null)
                 {
                     Console.WriteLine("Please choose an option from the menu below: \n"); //Presents the menu
@@ -24,14 +23,28 @@ namespace IndiduelltP_Banken_CS_MG
                     Console.WriteLine("     3. Withdraw funds.");
                     Console.WriteLine("     4. Log out");
 
-                    // Read the user's menu selection
-                    int menuOption = int.Parse(Console.ReadLine());
+                    bool correctInput = true;
+                    int menuOption = 0;
 
-                    // Handle the user's menu selection
-                    switch (menuOption)
+                    while (correctInput)
+                    {
+                        try
+                        {
+                            menuOption = int.Parse(Console.ReadLine()); //Menu choice
+                            break;
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Input must be a number");
+                        }
+                    }
+
+
+                    switch (menuOption)// Handle the user's menu selection
                     {
                         case 1: //View accounts
                             Console.Clear();
+                            Console.WriteLine("List of accounts... ");
                             ViewAccounts(currentUser);
                             MessagesInformations.enterToContinue();
                             Console.Clear();
@@ -101,17 +114,28 @@ namespace IndiduelltP_Banken_CS_MG
         {
             for (int i = 1; i <= currentUser.accountNames.Length; i++)
             {
-                Console.WriteLine(i + ". " + currentUser.accountNames[i-1] + ": " + currentUser.balances[i-1]);
+                Console.WriteLine(i + ". " + currentUser.accountNames[i - 1] + ": " + currentUser.balances[i - 1]);
             }
         }
         public static int ChooseAccount(User currentUser) //Funtion that returns which account is being selected
         {
             int i = 0;
-
+            bool correctInput = true;
             while (i != 1 && i != 2 && i != 3)
             {
-                Console.WriteLine("Enter 1, 2 or 3.");
-                i = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter 1 for Primary account, 2 for Secondary account or 3 for Savings account.");
+                while (correctInput)
+                {
+                    try
+                    {
+                        i = int.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Input must be a number");
+                    }
+                }
             }
             return i;
         }
@@ -125,21 +149,33 @@ namespace IndiduelltP_Banken_CS_MG
         }
         public static void TransferFunds(User currentUser) //function that allows transfers between account
         {
-            Console.WriteLine("Type the corresponding number to access the account: ");
             Console.WriteLine("Which account would you like to transfer from?");
             int fromAccount = BankFunctions.ChooseAccount(currentUser);
             Console.WriteLine("Which account would you like to transfer to? ");
             int toAccount = BankFunctions.ChooseAccount(currentUser);
             Console.Write("Enter amount: ");
-            double amountTransfer = double.Parse(Console.ReadLine());
+            bool correctInput = true;
+            double amountTransfer = 0;
+            while (correctInput)
+            {
+                try
+                {
+                    amountTransfer = double.Parse(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input must be a number");
+                }
+            }
+
             if (amountTransfer > currentUser.balances[fromAccount - 1])
             {
                 Console.WriteLine("Insufficient funds.");
             }
             else
             {
-
-                currentUser.balances[fromAccount - 1] = currentUser.balances[fromAccount - 1] - amountTransfer;
+                currentUser.balances[fromAccount - 1] = currentUser.balances[fromAccount - 1] - amountTransfer; //Since array starts at [0] and user input is from 1-3
                 currentUser.balances[toAccount - 1] = currentUser.balances[toAccount - 1] + amountTransfer;
                 Console.WriteLine("Transfered " + amountTransfer + " from " + currentUser.accountNames[fromAccount - 1] + " account to " + currentUser.accountNames[toAccount - 1] + " account.");
                 BankFunctions.ViewAccounts(currentUser);
@@ -151,7 +187,20 @@ namespace IndiduelltP_Banken_CS_MG
             int fromAccount = BankFunctions.ChooseAccount(currentUser);
             Console.WriteLine("How much funds would you like to withdraw?");
             Console.Write("Enter amount: ");
-            double amountWithdraw = double.Parse(Console.ReadLine());
+            bool correctInput = true;
+            double amountWithdraw = 0;
+            while (correctInput)
+            {
+                try
+                {
+                    amountWithdraw = double.Parse(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input must be a number");
+                }
+            }
             if (amountWithdraw > currentUser.balances[fromAccount - 1])
             {
                 Console.WriteLine("Insufficient funds.");
@@ -159,20 +208,20 @@ namespace IndiduelltP_Banken_CS_MG
             else
             {
 
-            Console.Write("Enter your pin again to confirm that you want to withdraw funds: ");
-            int tempPin = int.Parse(Console.ReadLine());
-            if (currentUser.pincode == tempPin) //Check to confirm that the correct users is attempting withdrawal
-            {
-                
-                Console.WriteLine("Withdrawing " + amountWithdraw + " SEK " + "from account: " + currentUser.accountNames[fromAccount - 1]);
-                currentUser.balances[fromAccount - 1] = currentUser.balances[fromAccount - 1] - amountWithdraw;
-                Console.WriteLine("Balance remaining: " + currentUser.balances[fromAccount - 1] + " SEK");
-            }
-            else
-            {
-                Console.WriteLine("Incorrect pincode");
-                Console.ReadLine();
-            }
+                Console.Write("Enter your pin again to confirm that you want to withdraw funds: ");
+                int tempPin = int.Parse(Console.ReadLine());
+                if (currentUser.pincode == tempPin) //Check to confirm that the correct users is attempting withdrawal
+                {
+
+                    Console.WriteLine("Withdrawing " + amountWithdraw + " SEK " + "from account: " + currentUser.accountNames[fromAccount - 1]);
+                    currentUser.balances[fromAccount - 1] = currentUser.balances[fromAccount - 1] - amountWithdraw;
+                    Console.WriteLine("Balance remaining: " + currentUser.balances[fromAccount - 1] + " SEK");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect pincode");
+                    Console.ReadLine();
+                }
 
             }
         }

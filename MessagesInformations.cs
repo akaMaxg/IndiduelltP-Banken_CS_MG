@@ -10,7 +10,7 @@ namespace IndiduelltP_Banken_CS_MG
     {
         public static void enterToContinue() //Function to press enter to return to main menu
         {
-            Console.WriteLine("Press the Enter key to return to the Main menu...");
+            Console.WriteLine("\nPress the Enter key to return to the Main menu...");
             while (Console.ReadKey(true).Key != ConsoleKey.Enter)
             {
                 Console.WriteLine("You did not press the Enter key. Try again.");
@@ -19,8 +19,7 @@ namespace IndiduelltP_Banken_CS_MG
         public static void WelcomeMsg() //function that greets and prompts login
         {
             Console.WriteLine("Welcome to the mock-bank Program!"); //Greetings
-            // Prompt the user to log in
-            Console.WriteLine("Please log in to continue.");
+            Console.WriteLine("Please log in to continue.");   // Prompt the user to log in
         }
         public static string PresentableName(User user) //Sets first character of name to Upper case
         {

@@ -46,8 +46,24 @@ namespace IndiduelltP_Banken_CS_MG
             {
                 Console.Write("Username: ");
                 string username = Console.ReadLine().ToLower(); //Ensures name is not case-sensative and takes username input
-                Console.Write("Password: ");
-                int pincode = int.Parse(Console.ReadLine()); //Password remains case-sensative, password input
+                Console.Write("Pincode: ");
+
+                bool correctInput = true;
+                int pincode = 0;
+
+                while (correctInput)
+                {
+                    try
+                    {
+                        pincode = int.Parse(Console.ReadLine()); //Password remains case-sensative, password input
+                        break;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Pincode must be a 4-digit code");
+                    }
+                }
+
 
                 // Check if the username and password match one of the users and sets/returns it as the current user
 
