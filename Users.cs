@@ -36,7 +36,6 @@ namespace IndiduelltP_Banken_CS_MG
             };
             return users;
         }
-
         public static User LogIn(User user1, User user2, User user3, User user4, User user5) //Method for login sequence
         {
             bool ensureUser = true; //Loops until user manages to log in
@@ -63,8 +62,6 @@ namespace IndiduelltP_Banken_CS_MG
                         Console.WriteLine("Pincode must be a 4-digit code");
                     }
                 }
-
-
                 // Check if the username and password match one of the users and sets/returns it as the current user
 
                 if (user1.username == username && user1.pincode == pincode)
