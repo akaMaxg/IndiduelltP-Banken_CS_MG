@@ -72,17 +72,28 @@ namespace IndiduelltP_Banken_CS_MG
                             Console.WriteLine("Would you like to login with a different user or exit the program?");
                             Console.WriteLine("     1. Log in with another user.");
                             Console.WriteLine("     2. Exit the bank");
-                            int exitOrLogIn = int.Parse(Console.ReadLine());
-                            switch (exitOrLogIn)
+                            int exitOrLogin = 0;
+                            try
                             {
-                                case 1:
-                                    Console.WriteLine("     1. Log in with another user.");
-                                    Console.Clear();
-                                    break;
-                                case 2:
-                                    Console.WriteLine("     2. Exit the bank.");
-                                    toRun = false;
-                                    break;
+                                exitOrLogin = int.Parse(Console.ReadLine());
+                                switch (exitOrLogin)
+                                {
+                                    case 1:
+                                        Console.WriteLine("     1. Log in with another user.");
+                                        Console.Clear();
+                                        break;
+                                    case 2:
+                                        Console.WriteLine("     2. Exit the bank.");
+                                        toRun = false;
+                                        break;
+                                    default:
+                                        Console.WriteLine("Improper input, returning to login...");
+                                        break;
+                                }
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Improper input, returning to login...");
                             }
                             break;
                     }
@@ -177,7 +188,7 @@ namespace IndiduelltP_Banken_CS_MG
             {
                 currentUser.balances[fromAccount - 1] = currentUser.balances[fromAccount - 1] - amountTransfer; //Since array starts at [0] and user input is from 1-3
                 currentUser.balances[toAccount - 1] = currentUser.balances[toAccount - 1] + amountTransfer;
-                Console.WriteLine("Transfered " + amountTransfer + " from " + currentUser.accountNames[fromAccount - 1] + " account to " + currentUser.accountNames[toAccount - 1] + " account.");
+                Console.WriteLine("Transfered " + amountTransfer + " from " + currentUser.accountNames[fromAccount - 1] + " account to " + currentUser.accountNames[toAccount - 1] + " account.\nRemaining balance:...\n");
                 BankFunctions.ViewAccounts(currentUser);
             }
         }
@@ -222,11 +233,9 @@ namespace IndiduelltP_Banken_CS_MG
                     Console.WriteLine("Incorrect pincode");
                     Console.ReadLine();
                 }
-
             }
         }
     }
-
 }
 
 

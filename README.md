@@ -1,12 +1,47 @@
-# IndividuellP-Banken_CS_MG
-##Projekt banken, C#, Max Guclu, FS.NET
+# Individuellt Projekt Banken C#, Max Guclu, Chas Academy Fullstack .NET
 
-#How the program works
-The program runs on two primary logical processer.
-One which runs in Main
-Second which runs in BankFunctions.
+## Fullstack-NET_MaxG_ChasAcademy22 Banken
+Welcome to the individual assignment The Bank, in C#
+This project is a simple bank that allows for some basic login and transaction function in a console program.
 
+## Prerequisites
+To the project, you will need the following software installed on your machine:
+* .NET Core
 
+## Running the program
+To run the project, follow these steps:
+ - Open a terminal window and navigate to the root directory of the project.
+ - Run the following command to start the application: dotnet run
+ - Alternatively use an IDE to run it
+
+## Usage
+Once the application is running, you can use it by following the on-screen prompts.
+The predetermined username and pincodes are 
+- "a", "1111"
+- "b", "2222"
+- "c", "3333"
+- "d", "4444"
+- "e", "5555"
+
+## Contributions & Feedback
+If you would like to contribute to this project, please fork the repository and submit a pull request. All contributions, and feedbacks are welcome and appreciated!
+
+### The program
+- The program runs on three main concepts
+- 1. A class User. This class allows for the creation of users with 5 parameters: Usernames, pincodes, an array[3] with bank accounts and an array[3] of balance
+  This class also contains a method that instansiates 5 users with hard-coded parameters
+- 2. A Run Menu method in the Bank Function's class. This menu is contained in a while loop which allows the users to perform multiple functions indefinetaly or until funds are 0 
+   It is primarily based on a switch case where the various options call methods in the program. 
+   It also allows for a logout which does not exit the entire bank-program, but the specific menu process
+- 3. The Main process. The important part here is that the Run menu program resides in a while loop. The while loop allows for the bank to be rerun with other users.
+	 The entire program does not exit until a user has specifically selected exit in the run menu function which sets "run bank" to false and exits the loop
+	 In addition the main function populates the balances and greets users.
+
+#### Overall
+In general, the entire program is divided into Messages and Informations, Bank Functions, Users and Program. This is to make the code accessible and easy to maintain. 
+The code accomodates typos, wrong types of input and runtime exceptions
+
+## The requirements listed for the assignment below with motivation to how I've solved them:
 
 [X] Användare skall välkomnas till banken
 - Användaren välkomnas med funktion WelcomeMsg under klass MessagesInformations.
@@ -24,7 +59,6 @@ Second which runs in BankFunctions.
 - Logga ut
 
 [X] Användaren väljer funktion genom en siffra.
-
 
 [X] När en funktion kör klart skall användaren få upp text "Tryck enter för att komma till huvudmenyn, när denna gjort det kommer menyn upp igen
 - Detta görs av funktion enterToContinue i klass MessagesInformations. 
