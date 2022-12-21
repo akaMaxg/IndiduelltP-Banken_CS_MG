@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //Testing
 
             User[] users = User.CreateUsers(); //Create user returns an array of 5 users
             BankFunctions.PopulateAccounts(users); //Method to populate all users bank accounts with funds

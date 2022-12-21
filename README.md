@@ -1,6 +1,12 @@
 # IndividuellP-Banken_CS_MG
 ##Projekt banken, C#, Max Guclu, FS.NET
 
+#How the program works
+The program runs on two primary logical processer.
+One which runs in Main
+Second which runs in BankFunctions.
+
+
 
 [X] Användare skall välkomnas till banken
 - Användaren välkomnas med funktion WelcomeMsg under klass MessagesInformations.
