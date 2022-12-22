@@ -71,17 +71,17 @@ The code accomodates typos, wrong types of input and runtime exceptions
 
 [X] 1. Se konton och saldo
 [X] Funktionen körs när alternativet är valt
-[X]-Utskrift av olika konton som användaren har och hur mycket pengar finns på dessa
+[X] Utskrift av olika konton som användaren har och hur mycket pengar finns på dessa
 - Görs av en funktion ViewAccounts under BankFunctions som itererar igenom kontona för aktiva användaren och presenterar dem
-[X]-Ska se både kronor och ören
-[X]-Kontonen ska ha olika namn, t.ex. lönekonto
+[X] Ska se både kronor och ören
+[X] Kontonen ska ha olika namn, t.ex. lönekonto
 - De är döpta till Primary, Secondary och Savings. Dessa nämns vid instansering av User
-[X]-Saldon för alla konton sätts vid starten av programmet vid start av programmet, om programmet startar om återställs dessa
+[X] Saldon för alla konton sätts vid starten av programmet vid start av programmet, om programmet startar om återställs dessa
 - Körs ett PopulateAccounts metod i början som randomar ett tal mellan 0 - 100.000 vid varje körning och fyller alla tre konton för samtliga användare.
 
 [X] 2. Överföring mellan konton
-[X]Funktionen körs när alternativet är valt
-[X]Användaren ska kunna välja konto att ta ut pengar ifrån, ett konto att flytta pengarna till och sen summa som ska flyttas mellan
+[X] Funktionen körs när alternativet är valt
+[X] Användaren ska kunna välja konto att ta ut pengar ifrån, ett konto att flytta pengarna till och sen summa som ska flyttas mellan
 - Detta görs med en TransferFunds metod under BankFunctions som hämtar och sätter värdena på konto-arrayen för den aktiva användaren
 [X] Summan ska sedan flyttas mellan kontonen och efteråt ska användaren få se vilken summa som finns på dessa två konton
 - Samma metod adderar angivna värdet till till-kontot, och subtraherar från från-kontot
@@ -98,13 +98,13 @@ The code accomodates typos, wrong types of input and runtime exceptions
 
 [X] Projektet ska byggas i Visual Studio med C# och .NET Core 6 som en Console Application
 
-[X]Alla namn på filer, variabler, metoder etc SKA vara på engelska
+[X] Alla namn på filer, variabler, metoder etc SKA vara på engelska
 [X] Projektet MÅSTE innehålla flera olika typer av datatyper varav array måste vara en av dessa
--Array
--Bool
--Double
--Int
--String
+- Array
+- Bool
+- Double
+- Int
+- String
 
 [X] Projektet MÅSTE använda flera typer av programstrukturer/programflöden; villkor och loopar
 - Genomgående i projektet finns switch-funktioner, if-satser, for- och whileloopar samt jämförparametrar.
