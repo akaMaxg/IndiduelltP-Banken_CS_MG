@@ -123,18 +123,18 @@ namespace IndiduelltP_Banken_CS_MG
         }
         public static void ViewAccounts(User currentUser) //Function that presents accountnames
         {
-            for (int i = 1; i <= currentUser.accountNames.Length; i++)
+            for (int j = 1; j <= currentUser.accountNames.Length; j++)
             {
-                Console.WriteLine(i + ". " + currentUser.accountNames[i - 1] + ": " + currentUser.balances[i - 1]);
+                Console.WriteLine(j + ". " + currentUser.accountNames[j - 1] + ": " + currentUser.balances[j - 1]);
             }
         }
         public static int ChooseAccount(User currentUser) //Funtion that returns which account is being selected
         {
             int i = 0;
             bool correctInput = true;
-            while (i != 1 && i != 2 && i != 3)
+            while (i != 1 && i != 2 && i != 3 && i != 4)
             {
-                Console.WriteLine("Enter 1 for Primary account, 2 for Secondary account or 3 for Savings account.");
+                ViewAccounts(currentUser);
                 while (correctInput)
                 {
                     try

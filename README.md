@@ -29,7 +29,7 @@ If you would like to contribute to this project, please fork the repository and 
 
 ### The program
 - The program runs on three main concepts
-- 1. A class User. This class allows for the creation of users with 5 parameters: Usernames, pincodes, an array[3] with bank accounts and an array[3] of balance
+- 1. A class User. This class allows for the creation of users with 5 parameters: Usernames, pincodes, an array[] with bank accounts and an array[] of balance
   This class also contains a method that instansiates 5 users with hard-coded parameters
 - 2. A Run Menu method in the Bank Function's class. This menu is contained in a while loop which allows the users to perform multiple functions indefinetaly or until funds are 0 
    It is primarily based on a switch case where the various options call methods in the program. 
@@ -76,7 +76,7 @@ The code accomodates typos, wrong types of input and runtime exceptions
 - Görs av en funktion ViewAccounts under BankFunctions som itererar igenom kontona för aktiva användaren och presenterar dem
 ##### [X] Ska se både kronor och ören
 [X] Kontonen ska ha olika namn, t.ex. lönekonto
-- De är döpta till Primary, Secondary och Savings. Dessa nämns vid instansering av User
+- De är döpta och nämns vid instansering av User
 ##### [X] Saldon för alla konton sätts vid starten av programmet vid start av programmet, om programmet startar om återställs dessa
 - Körs ett PopulateAccounts metod i början som randomar ett tal mellan 0 - 100.000 vid varje körning och fyller alla tre konton för samtliga användare.
 
