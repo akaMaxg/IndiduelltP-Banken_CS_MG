@@ -28,8 +28,8 @@ namespace IndiduelltP_Banken_CS_MG
             User[] users = new User[] //An array of objects, 
             {
                 //Creates 5 User-objects with 3 arguments for username and password, balances
-            new User("a", 1111, new string[] {"Primary", "Secondary", "Savings" }, new double[] { 0, 0, 0 }),
-            new User("b", 2222, new string[] {"Primary", "Secondary", "Savings" }, new double[] { 0, 0, 0 }),
+            new User("a", 1111, new string[] {"Primary", "Secondary", "Savings", "ISK" }, new double[] { 0, 0, 0, 0 }),
+            new User("b", 2222, new string[] {"Primary", "Secondary" }, new double[] { 0, 0 }),
             new User("c", 3333, new string[] {"Primary", "Secondary", "Savings" }, new double[] { 0, 0, 0 }),
             new User("d", 4444, new string[] {"Primary", "Secondary", "Savings" }, new double[] { 0, 0, 0 }),
             new User("e", 5555, new string[] {"Primary", "Secondary", "Savings" }, new double[] { 0, 0, 0 })

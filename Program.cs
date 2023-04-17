@@ -17,7 +17,7 @@
                                                                        //if user selected exit bank, this function will return false and exits the while loop
             }
             Console.Clear();
-            Console.WriteLine("Thank you for using the bank."); //After exiting the runBank loop
+            Console.WriteLine("!!!"); //After exiting the runBank loop
         }
     }
 }
